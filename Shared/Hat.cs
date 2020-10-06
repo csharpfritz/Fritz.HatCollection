@@ -5,6 +5,16 @@ namespace Fritz.HatCollection.Shared {
 	public class Hat
 	{
 
+			[FaunaConstructor]
+			public Hat(string tag, string name, string description)
+			{
+					this.Tag = tag;
+					this.Name = name;
+					this.Description = description;
+			}
+
+			public Hat() {}
+
 			[FaunaField("tag")]			
 			public string Tag { get; set; }
 
@@ -24,6 +34,11 @@ namespace Fritz.HatCollection.Shared {
 
 			[FaunaIgnore]
 			public string ImageUrl { get; set; }
+
+		public override string ToString()
+		{
+			return $"Tag: {Tag}, Name: {Name}, Desc: {Description}";
+		}
 
 	}
 

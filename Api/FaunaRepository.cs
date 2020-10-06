@@ -22,12 +22,11 @@ namespace Fritz.HatCollection.Api
 		{
 
 			var client = new FaunaClient(endpoint: ENDPOINT, secret: SECRET);
-			var result = client.Query(Paginate(Collection("hats"))).GetAwaiter().GetResult();
+			var result = await client.Query(Map(Paginate(Match(Index("all_hats_withref"))), Lambda((x,y,z,r) => Get(r))));
 
-			// Console.WriteLine(result.At("data").To<Hat[]>().Value.Length);
-			Console.WriteLine(result.At("data"));
+			var faunaHats = result.At("data").To<Value[]>().Value;
+			var hats = faunaHats.Select(v => v.At("data").To<Hat>().Value);
 
-			var hats = result.At("data").To<Hat[]>().Value;
 			return hats;
 		}
 	}
