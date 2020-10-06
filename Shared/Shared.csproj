@@ -5,4 +5,8 @@
     <RootNamespace>Fritz.HatCollection.Shared</RootNamespace>
   </PropertyGroup>
 
+	<ItemGroup>
+		<PackageReference Include="FaunaDB.Client" Version="3.0.0" />
+	</ItemGroup>
+
 </Project>

@@ -5,6 +5,7 @@
     <RootNamespace>Fritz.HatCollection.Api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="FaunaDB.Client" Version="3.0.0" />
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.3" />
   </ItemGroup>
   <ItemGroup>

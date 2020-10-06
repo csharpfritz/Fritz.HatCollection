@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.WebJobs;
@@ -10,15 +11,15 @@ namespace Fritz.HatCollection.Api
 	public class HatFunction
 	{
 
-		internal static IRepository Repository { get { return new StubRepository(); } }
+		internal static IRepository Repository { get { return new FaunaRepository(); } }
 
 		[FunctionName("GetHats")]
-		public static IActionResult GetHats(
+		public static async Task<IActionResult> GetHats(
 			[HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
 			ILogger log)
 		{
 
-			var hats = Repository.GetHats();
+			var hats = await Repository.GetHats();
 			return new OkObjectResult(hats);
 
 		}

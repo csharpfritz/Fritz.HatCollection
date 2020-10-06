@@ -1,0 +1,13 @@
+<div class="card"> 
+	<div class="card-body">
+			<h3 class="card-title">@Model.Name</h3>
+			<p class="card-text">@Model.Description</p>
+	</div>
+</div>
+
+@code {
+
+	[Parameter]
+	public Hat Model { get; set; }
+
+}

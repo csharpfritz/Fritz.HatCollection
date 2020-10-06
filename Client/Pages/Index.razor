@@ -6,17 +6,17 @@
 
 Here is a collection of Fritz's Hats
 
+Boop!
+
 @if (Hats == null)  {
 	<p>Loading...</p>
 } else {
-	@foreach (var hat in Hats) {
-		<div>
-			<dl>
-				<dt>@hat.Name</dt>
-				<dd>@hat.Description</dd>
-			</dl>
-		</div>
-	}
+
+	<div class="card-columns">
+		@foreach (var hat in Hats) {
+			<HatUI Model="hat"></HatUI>
+		}
+	</div>
 }
 
 @code {
