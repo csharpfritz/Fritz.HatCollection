@@ -1,0 +1,33 @@
+﻿@using System.Collections.Generic
+@page "/"
+@inject HttpClient Http
+
+<h1>Fritz Hats</h1>
+
+Here is a collection of Fritz's Hats
+
+@if (Hats == null)  {
+	<p>Loading...</p>
+} else {
+	@foreach (var hat in Hats) {
+		<div>
+			<dl>
+				<dt>@hat.Name</dt>
+				<dd>@hat.Description</dd>
+			</dl>
+		</div>
+	}
+}
+
+@code {
+
+	IEnumerable<Hat> Hats = null;
+
+	protected override async Task OnInitializedAsync() {
+
+		Hats = await Http.GetFromJsonAsync<Hat[]>("/api/GetHats");
+
+	}
+
+}
+
