@@ -23,7 +23,11 @@ namespace Fritz.HatCollection.Shared {
 			/// </summary>
 			/// <value></value>
 			[FaunaField("name")]
-			public string Name { get; set; }
+			public string Name { 
+				get { return _Name ?? Tag; }
+				set { _Name = value; }
+			}
+			private string _Name = null;
 
 			/// <summary>
 			/// Brief description about the hat
