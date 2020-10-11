@@ -2,12 +2,6 @@
 @page "/"
 @inject HttpClient Http
 
-<h1>Fritz Hats</h1>
-
-Here is a collection of Fritz's Hats
-
-Boop!
-
 @if (Hats == null)  {
 	<p>Loading...</p>
 } else {
@@ -23,9 +17,23 @@ Boop!
 
 	IEnumerable<Hat> Hats = null;
 
+	[CascadingParameter]
+	MainLayout _Layout { get; set; }
+
 	protected override async Task OnInitializedAsync() {
 
 		Hats = await Http.GetFromJsonAsync<Hat[]>("/api/GetHats");
+		_Layout.OnSearch += DoSearch;
+
+	}
+
+	protected async void DoSearch(object sender, SearchArgs args) {
+
+			Hats = (await Http.GetFromJsonAsync<Hat[]>("/api/GetHats"))
+				.Where(h => h.Name.Contains(args.SearchTerm, StringComparison.InvariantCultureIgnoreCase))
+				.ToArray();
+
+			StateHasChanged();
 
 	}
 

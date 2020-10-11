@@ -1,15 +1,37 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
-
 <div class="main">
-    <div class="top-row px-4">
-        <a href="http://blazor.net" target="_blank" class="ml-md-auto">About</a>
-    </div>
 
-    <div class="content px-4">
-        @Body
-    </div>
+<nav class="navbar navbar-light bg-light justify-content-between">
+  <a class="navbar-brand">
+		<img src="img/brand.png" alt="Purple Propeller Ballcap" class="d-inline-block align-middle" width="50" height="50" />
+		<span>Fritz's Hats<br/>
+		<span class="text-muted">A streamer's hat collection</span>
+		</span>
+	</a>
+  <form class="form-inline">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @bind="SearchTerm">
+    <button class="btn btn-outline-success my-2 my-sm-0" @onclick:preventDefault="true" @onclick="DoSearch">Search</button>
+  </form>
+</nav>
+
+		<div class="content px-4">
+			<CascadingValue Value="this">
+				@Body
+			</CascadingValue>
+		</div>
 </div>
+
+@code {
+
+	public string SearchTerm { get; set; } 
+
+	public System.EventHandler<SearchArgs> OnSearch { get; set; }
+
+	public void DoSearch() { 
+
+		OnSearch.Invoke(null, new SearchArgs(SearchTerm));
+
+	}
+
+}
