@@ -13,7 +13,7 @@ namespace Fritz.HatCollection.Api
 			return Task.FromResult(new Hat[] {
 				new Hat {
 					Tag="vegas_knights",
-					Name="Las Vegas Golden Knights",
+					RawName="Las Vegas Golden Knights",
 					Description="Fritz got this hat when he last visited Las Vegas in 2019 and attended a Golden Knights hockey game."
 				}
 			}.AsEnumerable());

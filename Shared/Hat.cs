@@ -9,7 +9,7 @@ namespace Fritz.HatCollection.Shared {
 			public Hat(string tag, string name, string description)
 			{
 					this.Tag = tag;
-					this.Name = name;
+					this.RawName = name;
 					this.Description = description;
 			}
 
@@ -23,11 +23,11 @@ namespace Fritz.HatCollection.Shared {
 			/// </summary>
 			/// <value></value>
 			[FaunaField("name")]
-			public string Name { 
-				get { return _Name ?? Tag; }
-				set { _Name = value; }
+			public string RawName {  get; set; }
+
+			public string Name {
+				get { return string.IsNullOrEmpty(RawName) ? Tag : RawName; }
 			}
-			private string _Name = null;
 
 			/// <summary>
 			/// Brief description about the hat
