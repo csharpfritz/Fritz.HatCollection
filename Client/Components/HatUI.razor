@@ -1,14 +1,21 @@
 <div class="card"> 
-		<div class="card-body">	
+	<div class="card-body">	
+
+		<div class="card-inner">
+
 			<div class="card-front">
 				<h4>@Model.Name</h4>
 				<p>@Model.Description</p>
 			</div>
+
+			<div class="card-back"> 
+					<h4>@Model.Name</h4>
+					<img src="/img/atari.jpg" alt="@Model.Name Hat Image" />
+			</div>
+
 		</div>
-	@* </div>
-	<div class="card-back"> *@
-			@* This is the card back *@
-	@* </div> *@
+
+	</div>
 </div>
 
 @code {
