@@ -1,20 +1,28 @@
-<div class="card"> 
-	<div class="card-body">	
-
-		<div class="card-inner">
-
-			<div class="card-front">
-				<h4>@Model.Name</h4>
-				<p>@Model.Description</p>
+<div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+	<div class="mainflip">
+		<div class="frontside">
+			<div class="card" style="width:20rem;">
+				<img class="card-img-top img-fluid" src="img/atari.jpg" alt="card image">
+				<div class="card-body">
+					<h4 class="card-title">@Model.Name</h4>
+				</div>
 			</div>
-
-			<div class="card-back"> 
-					<h4>@Model.Name</h4>
-					<img src="/img/atari.jpg" alt="@Model.Name Hat Image" />
-			</div>
-
 		</div>
-
+		<div class="backside">
+			<div class="card" style="width:20rem;">
+				<div class="card-header">
+					@Model.Name
+				</div>
+				<div class="card-body">
+					@* <h4 class="card-title">Card Title</h4> *@
+					<p class="card-text">@Model.Description</p>
+					@* <a href="#" class="btn btn-info btn-md">Info Button</a> *@
+				</div>
+				@* <div class="card-footer">
+					This is a Footer
+				</div> *@
+			</div>
+		</div>
 	</div>
 </div>
 
