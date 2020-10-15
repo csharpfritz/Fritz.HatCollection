@@ -11,7 +11,8 @@
 	</a>
   <form class="form-inline">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" @bind="SearchTerm">
-    <button class="btn btn-outline-success my-2 my-sm-0" @onclick:preventDefault="true" @onclick="DoSearch">Search</button>
+    <button class="btn btn-outline-success m-2 my-sm-0" @onclick:preventDefault="true" @onclick="DoSearch">Search</button>
+    <button class="btn btn-outline-danger my-2 my-sm-0" @onclick:preventDefault="true" @onclick="ResetSearch">Reset</button>
   </form>
 </nav>
 
@@ -31,6 +32,13 @@
 	public void DoSearch() { 
 
 		OnSearch.Invoke(null, new SearchArgs(SearchTerm));
+
+	}
+
+	public void ResetSearch() { 
+
+		SearchTerm = "";
+		DoSearch();
 
 	}
 
