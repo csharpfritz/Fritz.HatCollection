@@ -36,6 +36,9 @@ namespace Fritz.HatCollection.Shared {
 			[FaunaField("description")]
 			public string Description { get; set; }
 
+			[FaunaField("acquired")]
+			public string Acquired { get; set; }
+
 			[FaunaIgnore]
 			public string ImageUrl { get; set; }
 

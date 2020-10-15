@@ -6,7 +6,11 @@
 				<div class="card-body">
 					<h4 class="card-title">@Model.Name</h4>
 				</div>
-				<div class="card-footer text-muted text-right">Acquired: March 2020</div>
+				@if (!string.IsNullOrEmpty(Model.Acquired)) {
+					<div class="card-footer text-muted text-right">
+						Acquired: @Model.Acquired
+					</div>
+				}
 			</div>
 		</div>
 		<div class="backside">
