@@ -30,7 +30,9 @@
 	protected async void DoSearch(object sender, SearchArgs args) {
 
 			Hats = (await Http.GetFromJsonAsync<Hat[]>("/api/GetHats"))
-				.Where(h => h.Name.Contains(args.SearchTerm, StringComparison.InvariantCultureIgnoreCase))
+				.Where(h => h.Name.Contains(args.SearchTerm, StringComparison.InvariantCultureIgnoreCase)
+					|| h.Description.Contains(args.SearchTerm, StringComparison.InvariantCultureIgnoreCase)
+				)
 				.ToArray();
 
 			StateHasChanged();
