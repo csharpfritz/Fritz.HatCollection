@@ -1,8 +1,8 @@
-# Fritz's Hat Collection
+# [Fritz's Hat Collection](https://hats.csharpfritz.com)
 
 [![Azure Static Web Apps CI/CD](https://github.com/csharpfritz/Fritz.HatCollection/actions/workflows/azure-static-web-apps-salmon-pond-0177b6f0f.yml/badge.svg)](https://github.com/csharpfritz/Fritz.HatCollection/actions/workflows/azure-static-web-apps-salmon-pond-0177b6f0f.yml)
 
-This repository contains an example [Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/?view=aspnetcore-3.1#blazor-webassembly) client application, a C# [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) and a C# class library with shared code.  Fritz wrote these to demonstrate a simple Blazor site showing off his collection of hats.
+This repository contains an example [Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/?view=aspnetcore-3.1#blazor-webassembly) client application, a C# [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) and a C# class library with shared code.  Fritz wrote these to demonstrate a [simple Blazor site showing off his collection of hats](https://hats.csharpfritz.com).
 
 [![Screenshot of Fritz's HatCollection website](docs/images/website-screenshot.png)](https://hats.csharpfritz.com)
 
