@@ -5,6 +5,9 @@ namespace BlazorApp.Client
 {
 	public class Program
     {
+
+			public const string BaseImageUrl = "https://hatcollection.blob.core.windows.net/hat-images";
+
         public static async Task Main(string[] args)
         {
             var builder = WebAssemblyHostBuilder.CreateDefault(args);
