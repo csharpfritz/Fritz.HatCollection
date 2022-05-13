@@ -11,7 +11,7 @@ namespace Fritz.HatCollection.Api
 	public class HatFunction
 	{
 
-		internal static IRepository Repository { get { return new FaunaRepository(); } }
+		internal static IRepository Repository { get { return new AzureTableRepository(); } }
 
 		[FunctionName("GetHats")]
 		public static async Task<IActionResult> GetHats(

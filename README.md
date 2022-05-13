@@ -9,6 +9,7 @@ This repository contains an example [Blazor WebAssembly](https://docs.microsoft.
 ## Re-using this project
 
 Fork this repository from the and then clone it locally to your machine.  This project is based on .NET Core 3.1 for the Azure functions and .NET 6 for the Blazor web-assembly application.
+Create a repository from the [GitHub template](https://github.com/staticwebdev/blazor-starter/generate) and then clone it locally to your machine.
 
 Once you clone the project, open the solution in [Visual Studio](https://visualstudio.microsoft.com/vs/community/) and press **F5** to launch both the client application and the Functions API app.
 
