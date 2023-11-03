@@ -1,30 +1,32 @@
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Azure.Functions.Worker.Http;
 using Microsoft.Extensions.Logging;
 
-namespace Fritz.HatCollection.Api
+namespace Fritz.HatCollection.Api;
+
+
+public class HatFunction
 {
 
-	public class HatFunction
+	internal static IRepository Repository { get { return new AzureTableRepository(); } }
+
+	[Function("GetHats")]
+	public async Task<HttpResponseData> GetHats(
+		[HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequestData req,
+		ILogger log)
 	{
 
-		internal static IRepository Repository { get { return new AzureTableRepository(); } }
+		var hats = await Repository.GetHats();
 
-		[FunctionName("GetHats")]
-		public static async Task<IActionResult> GetHats(
-			[HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)] HttpRequest req,
-			ILogger log)
-		{
+		var response = req.CreateResponse(System.Net.HttpStatusCode.OK);
+		await response.WriteAsJsonAsync(hats);
 
-			var hats = await Repository.GetHats();
-			return new OkObjectResult(hats);
-
-		}
-
-
-		}
+		return response;
 
 	}
+
+
+	}
+
+
